@@ -1,0 +1,12 @@
+- name: Copy the join command to workers
+  become: true
+  copy:
+    src: /home/kube/joincommand.sh
+    dest: /home/kube/
+    owner: kube
+    group: kube
+    mode: '0777'
+
+- name: Run the join command on workers
+  become: true
+  command: sh /home/kube/joincommand.sh
