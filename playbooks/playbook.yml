@@ -1,0 +1,17 @@
+- name: Setup prerequisites
+  hosts: all
+  tasks:
+  - import_role:
+      name: kubernetes.common
+
+- name: Provisioning master
+  hosts: master
+  tasks:
+  - import_role:
+      name: kubernetes.master
+
+- name: Provisioning worker
+  hosts: worker
+  tasks:
+  - import_role:
+      name: kubernetes.worker
